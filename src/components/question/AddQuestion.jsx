@@ -2,6 +2,7 @@ import React from 'react'
 import { useState,useEffect } from 'react';
 import { Link } from "react-router-dom"
 import { createQuestion, getSubjects } from '../../utils/QuizService';
+import { toast } from 'react-toastify';
 
 const AddQuestion = () => {
 
@@ -70,6 +71,7 @@ const AddQuestion = () => {
           subject
       }
       await createQuestion(result);
+	  toast.success("Question Added");
 
       setQuestion("");
       setQuestionType("single");
@@ -237,8 +239,8 @@ const AddQuestion = () => {
 
 								{!correctAnswers.length && <p>Please enter at least one correct answer.</p>}
 
-								<div className="btn-group">
-									<button type="submit" className="btn btn-outline-success mr-2">
+								<div>
+									<button type="submit" className="btn btn-outline-success me-2">
 										Save Question
 									</button>
 									<Link to={"/all-quizzes"} className="btn btn-outline-primary ml-2">
