@@ -57,7 +57,7 @@ import { getSubjects } from "../../utils/QuizService"
 								value={selectedSubject}
 								onChange={handleSubjectChange}>
 								<option value="">Select a subject</option>
-								{subjects.map((subject) => (
+								{subjects && subjects.map((subject) => (
 									<option key={subject} value={subject}>
 										{subject}
 									</option>
